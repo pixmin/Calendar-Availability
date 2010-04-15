@@ -1,0 +1,88 @@
+/*
+	NEW COLOR SCHEME - CHOCOLATE
+*/
+
+body {
+	color: #0e0;
+	background-color: #003300;
+}
+#header {
+	background-color: #0b470b;
+	border-bottom: 1px solid #265a26;
+}
+h1 {
+	color: #00ca00;
+}
+h2 {
+	color: #009500;
+}
+h3 {
+	color: #00be00;
+}
+a:link, a:visited {
+	color: #00df00;
+}
+/* Month block */
+.month {
+	background-color: #003500;
+	border: 1px solid #003f00;
+}
+.month span:hover {
+	color: #000;
+	background-color: #0f0;
+}
+.month:hover {
+	background-color: #004400;
+	border-color: #060;
+}
+/* Week days */
+.month span {
+	color: #008800;
+}
+/* Week end days */
+.month .we {
+	color: #005f00;
+}
+/* Current month */
+.current {
+	background-color: #004400;
+	border-color: #060;
+}
+.current h3, .month:hover h3 {
+	color: #0f0;
+}
+/* Past */
+.past h3 {
+	color: #060;
+}
+.past span {
+	color: #005e00;
+}
+.past .we {
+	color: #004e00;
+}
+/* Busy, Offline and Out */
+.month .busy, .busy {
+	color: #eee;
+	background-color: #00d200;
+}
+.month .offline, .offline {
+	color: #eee;
+	background-color: #346a34;
+}
+.month .out, .out {
+	color: #eee;
+	background-color: #43bf78;
+}
+/* Legend */
+#legend {
+	background-color: #040;
+	border: 1px solid #050;
+}
+#legend dd {
+	color: #009500;
+}
+#footer {	color: #009500;
+
+	color: #009500;
+}

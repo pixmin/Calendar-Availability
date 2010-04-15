@@ -1,0 +1,168 @@
+body {
+	margin:0;
+	padding: 0;
+	color: #eee;
+	background-color: #333;
+	font: 0.85em/1.7em "Droid sans", Tahoma, Verdana, Arial, sans-serif;
+}
+
+h1, h2 {
+	margin: 0;
+	padding: 0.5em;
+	font-size: 0.8em;
+}
+h1 {
+	text-align: left;
+}
+h1 em {
+	font-style: normal;
+	color: #e12560;
+}
+h2 {
+	position: absolute;
+	top: 0;
+	right: 0;
+	text-align: right;
+}
+h2 em {
+	font-style: normal;
+	color: #f5be12;
+	color: #e12560;
+}
+h3 {
+	margin: 0.25em 0;
+	font-size: 0.9em;
+	text-align: center;
+	color: #f5be12;
+}
+
+a:link, a:visited {
+	color: #aaa;
+	text-decoration: none;
+}
+a.selected {
+	font-weight: bold;
+}
+
+#header {
+	color: #ccc;
+	background-color: #222;
+	border-bottom: 1px solid #444;
+}
+
+#container {
+	width: 72em;
+	margin: 2em auto;
+}
+
+/* Month block */
+.month {
+	float: left;
+	width: 15em;
+	margin: 0 0.5em 2em 1.5em;
+	padding: 0.25em 0.25em 0.5em;
+	background-color: #353535;
+	border: 1px solid #3f3f3f;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+.month:hover {
+	background-color: #444;
+	border-color:#555;
+}
+
+/* Week days */
+.month span {
+	float: left;
+	display: block;
+	width: 2em;
+	text-align: center;
+	color: #888;
+	-moz-border-radius: 1em;
+	-webkit-border-radius: 1em;
+}
+.month span:hover {
+	color: #fff;
+	background-color: #f5be12;
+	-moz-border-radius: 1em;
+	-webkit-border-radius: 1em;
+}
+/* Week end days */
+.month .we {
+	color: #9a7272;
+}
+
+/* Current month */
+.current {
+	background-color: #444;
+	border-color:#666;
+}
+.current h3, .month:hover h3 {
+	color: #fff;
+}
+
+/* Past month */
+.past {
+	border-color: #363636;
+}
+.past h3 {
+	color: #666;	
+}
+.past span {
+	color: #555;
+}
+.past .we {
+	color: #877474;
+}
+
+/* Busy, Offline and Out */
+.month .busy, .busy {
+	color: #eee;
+	background-color: #c5d200;
+}
+.month .offline, .offline {
+	color: #eee;
+	background-color: #d70044;
+}
+.month .out, .out {
+	color: #eee;
+	background-color: #0088ac;
+}
+
+/* Legend */
+#legend {
+	clear: both;	
+	overflow: hidden;
+	width: 45em;
+	margin: 2em auto;
+	padding: .5em;
+	background-color: #444;
+	font-size: 0.9em;
+	border: 1px solid #555;
+}
+#legend span {
+	padding: 0 .5em;
+	margin: 0 .5em 0 0;
+}
+#legend dl {
+	float: left;
+	margin: 0 0 0 0.5em;
+	padding: 0;
+}
+#legend dt {
+	clear: left;
+	float: left;
+	width: 7em;
+	margin: 0;
+	padding: 0;
+}
+#legend dd {
+	float: left;
+	color: #999;
+}
+
+#footer {
+	text-align: center;
+	font-size: 0.75em;
+	color: #666;
+}

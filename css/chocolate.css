@@ -1,0 +1,87 @@
+/*
+	NEW COLOR SCHEME - GREEN
+*/
+
+body {
+	color: #eee;
+	background-color: #453d30;
+}
+#header {
+	background-color: #171410;
+	border-bottom: 1px solid #2e2920;
+}
+h1 {
+	color: #e4cb9e;
+}
+h2 {
+	color: #87785e;
+}
+h3 {
+	color: #e5cc9f;
+}
+a:link, a:visited {
+	color: #af9c79;
+}
+/* Month block */
+.month {
+	background-color: #484032;
+	border: 1px solid #736650;
+}
+.month span:hover {
+	color: #fff;
+	background-color: #cb8c29;
+}
+.month:hover {
+	background-color: #615643;
+	border-color: #c6b18a;
+}
+/* Week days */
+.month span {
+	color: #b8a47f;
+}
+/* Week end days */
+.month .we {
+	color: #766342;
+}
+/* Current month */
+.current {
+	background-color: #615643;
+	border-color: #c6b18a;
+}
+.current h3, .month:hover h3 {
+	color: #fff;
+}
+/* Past */
+.past h3 {
+	color: #8a7b60;
+}
+.past span {
+	color: #736650;
+}
+.past .we {
+	color: #665537;
+}
+/* Busy, Offline and Out */
+.month .busy, .busy {
+	color: #eee;
+	background-color: #897a5f;
+}
+.month .offline, .offline {
+	color: #eee;
+	background-color: #723a3a;
+}
+.month .out, .out {
+	color: #eee;
+	background-color: #bf985b;
+}
+/* Legend */
+#legend {
+	background-color: #5c5240;
+	border: 1px solid #736650;
+}
+#legend dd {
+	color: #c6b089;
+}
+#footer {
+	color: #87785e;
+}
