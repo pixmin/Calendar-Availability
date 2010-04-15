@@ -2,6 +2,8 @@
 
 	require_once("settings_inc.php");
 
+	if ($_GET["details"]) $showDetails = true;
+
 	// First month to start with
 	$start_date = time() - ( 60 * 60 * 24 * 30 * $past_month );
 
@@ -44,6 +46,7 @@
 	<meta name="author" content="Gaëtan Priour" />
 
 	<link href="css/style.css" media="screen" rel="stylesheet" type="text/css" />
+	<?php if ($showDetails == true) { ?><link href="css/projects.css" media="screen" rel="stylesheet" type="text/css" /><?php } ?>
 	<?php // THEME SWITCHER
 
 		if ($cssTheme && file_exists("./css/" . $cssTheme . ".css")) {
@@ -66,10 +69,6 @@
 	$doc = new DOMDocument(); 
 	$doc->load( $xml_local );
 	$entries = $doc->getElementsByTagName( "entry" );
-
-	$busy = array();
-	$offline = array();
-	$out = array();
 	
 	foreach ( $entries as $entry ) { 
 
@@ -97,13 +96,19 @@
 			elseif (strstr($title, "busy"))		$busy[] = 		$date_start;
 			elseif ($title == "out")				$out[] = 		$date_start;
 
+			// Check if it's a specific project
+			if (strstr($title, "work:")) {
+				$projects["date"][] = $date_start;
+				$projects["name"][$date_start] = str_replace("work:", "", $title);
+			}
+
 		}
 	}
 
 	// Print the month calendar
 	function cal_month($month, $year, $show_events = true) {
 		
-		global $busy, $offline, $out;
+		global $busy, $offline, $out, $projects, $showDetails;
 		$days_in_month = date('t', strtotime($month . "/1/" . $year));
 		$day_of_week = date('N', strtotime($month . "/1/" . $year));
 		$days = 0;
@@ -127,9 +132,21 @@
 
 			// Shall we add events to the calendar?
 			if ($show_events == true) {
-				if (in_array($date, $busy)) { print "busy "; }
-				if (in_array($date, $offline)) { print "offline "; }
-				if (in_array($date, $out)) { print "out "; }
+
+				// First check for project specific, then busy/offline/out
+				if (in_array($date, $projects["date"]))
+					if ($showDetails == true) {
+						print $projects["name"][$date];
+					} else {
+						print "busy";
+					}
+				elseif (in_array($date, $busy))
+					print "busy";
+				elseif (in_array($date, $offline))
+					print "offline";
+				elseif (in_array($date, $out))
+					print "out";
+				
 			}
 
 			// Check if the is a WE day
@@ -191,6 +208,26 @@
 			
 			<dt><span class="offline">&nbsp;</span> Offline</dt>
 			<dd>No network, I'll answer you when I get back</dd>
+
+			<?php if ($showDetails) {
+
+				$projectsName = array();
+
+				foreach($projects["name"] as $name) {
+
+					// Only do it once for each project
+					if (!in_array($name, $projectsName)) {
+						$projectsName[] = $name;
+						
+			?><dt><span class="<?php print $name; ?>">&nbsp;</span> <?php print $name; ?></dt>
+			<dd></dd>
+			
+			<?php
+			
+					}
+				}
+
+			} ?>
 			
 		</dl>
 		
@@ -215,16 +252,20 @@
 <?php /*
 <!-- *** DEBUG ***
 
+Projects:
+<?php print_r($projects); ?>
+
 Offline:
-<?php var_dump($offline); ?>
+<?php print_r($offline); ?>
 
 Busy:
-<?php var_dump($busy); ?>
+<?php print_r($busy); ?>
 
 Out:
-<?php var_dump($out); ?>
+<?php print_r($out); ?>
 
 -->
 */ ?>
+
 </body>
 </html>
