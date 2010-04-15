@@ -235,11 +235,11 @@
 
 	<div id="footer">
 
-		<p>Updated <?php
+		<p>Last update <?php
 
-			print floor($last_update) . " minutes";
+			print date("H:i l jS M Y", filemtime($xml_local));
 
-		?> ago. Next feed update in <?php
+		?>. Next feed update in <?php
 
 			print intval($update_frequency - $last_update) . " minutes.";
 
